@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyLo Home Loan</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* TOPBAR */
+
+        .topbar {
+            height: 70px;
+            background: #1f1f1f;
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 40px;
+
+            position: fixed;
+            top: 0;
+            width: 100%;
+
+            z-index: 999;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .left h1 {
+            font-size: 36px;
+        }
+
+        .left span {
+            font-size: 20px;
+        }
+
+        .right {
+            display: flex;
+            gap: 20px;
+            font-size: 32px;
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            height: 850px;
+            margin-top: 70px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 850px;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(91, 223, 196, 0.55);
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+
+            padding: 0 120px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            z-index: 10;
+        }
+
+        .logo {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav ul li {
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav button {
+            background: #10c98f;
+            color: white;
+            border: none;
+
+            padding: 15px 28px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+        }
+
+        /* HERO CONTENT */
+
+        .hero-content {
+            position: absolute;
+
+            top: 180px;
+            left: 120px;
+            right: 120px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            z-index: 10;
+        }
+
+        /* LEFT CONTENT */
+
+        .hero-left {
+            width: 600px;
+            color: white;
+        }
+
+        .hero-left h1 {
+            font-size: 85px;
+            line-height: 1.1;
+        }
+
+        .line {
+            width: 120px;
+            height: 3px;
+            background: white;
+            margin: 35px 0;
+        }
+
+        .hero-left p {
+            font-size: 24px;
+            line-height: 1.7;
+        }
+
+        .service-btn {
+            margin-top: 40px;
+
+            width: 230px;
+            height: 70px;
+
+            border: 2px solid white;
+
+            background: transparent;
+            color: white;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.4s;
+        }
+
+        .service-btn:hover {
+            background: #10c98f;
+        }
+
+        /* FORM */
+
+        .loan-box {
+            width: 420px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 5px;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+        }
+
+        .loan-box h2 {
+            text-align: center;
+            font-size: 35px;
+        }
+
+        .loan-box p {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loan-box label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 10px;
+
+            font-weight: bold;
+        }
+
+        .loan-box input {
+            width: 100%;
+            height: 55px;
+
+            padding-left: 15px;
+
+            border: 1px solid #ddd;
+        }
+
+        .loan-box h4 {
+            margin-top: 25px;
+        }
+
+        .loan-box h4 span {
+            color: #10c98f;
+        }
+
+        .apply-btn {
+            width: 100%;
+            height: 60px;
+
+            margin-top: 25px;
+
+            border: none;
+
+            background: #10c98f;
+            color: white;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        /* SOLUTIONS */
+
+        .solutions {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .solutions h1 {
+            font-size: 50px;
+        }
+
+        .small-line {
+            width: 120px;
+            height: 3px;
+            background: #10c98f;
+            margin: 20px auto;
+        }
+
+        .solutions p {
+            color: #666;
+        }
+
+        .cards {
+            margin-top: 70px;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .card {
+            flex: 1;
+            text-align: left;
+        }
+
+        .card img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            margin: 20px 0;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #f8fcfb;
+
+            padding: 100px 8%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 550px;
+        }
+
+        .green-box {
+            position: absolute;
+
+            bottom: -40px;
+            right: -60px;
+
+            background: #10c98f;
+
+            color: white;
+
+            padding: 40px;
+            text-align: center;
+        }
+
+        .green-box h1 {
+            font-size: 60px;
+        }
+
+        .about-content {
+            width: 45%;
+        }
+
+        .about-content h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .about-content ul {
+            margin: 30px 0;
+        }
+
+        .about-content li {
+            margin-bottom: 15px;
+        }
+
+        .about-content button {
+            background: #10c98f;
+            color: white;
+
+            border: none;
+
+            padding: 18px 35px;
+
+            cursor: pointer;
+        }
+
+        /* WHY CHOOSE US */
+
+        .choose {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .choose h1 {
+            font-size: 50px;
+        }
+
+        .choose-cards {
+            display: flex;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .choose-box {
+            flex: 1;
+        }
+
+        .choose-box img {
+            width: 90px;
+        }
+
+        .choose-box h2 {
+            margin: 20px 0;
+        }
+
+        .choose-box p {
+            color: #666;
+        }
+
+        /* LOAN STEP */
+
+        .loan-step {
+            padding: 100px 8%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .loan-content {
+            width: 45%;
+        }
+
+        .loan-content h1 {
+            font-size: 50px;
+        }
+
+        .loan-content p {
+            margin: 25px 0;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .loan-content li {
+            margin-bottom: 15px;
+        }
+
+        .loan-content button {
+            margin-top: 20px;
+
+            background: #10c98f;
+            color: white;
+
+            border: none;
+
+            padding: 18px 35px;
+        }
+
+        .loan-image img {
+            width: 550px;
+        }
+
+        /* TESTIMONIAL */
+
+        .testimonial {
+            background: #0e4d3d;
+            color: white;
+
+            padding: 100px 15%;
+            text-align: center;
+        }
+
+        .testimonial h2 {
+            font-size: 35px;
+            line-height: 1.6;
+        }
+
+        .author {
+            margin-top: 40px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .author img {
+            width: 80px;
+            height: 80px;
+
+            border-radius: 50%;
+        }
+
+        /* BLOG */
+
+        .blog {
+            padding: 100px 8%;
+        }
+
+        .blog h1 {
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .blog-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .blog-card {
+            flex: 1;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog-card h2 {
+            margin-top: 20px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #edf3f1;
+            padding: 80px 8%;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-grid div {
+            flex: 1;
+        }
+
+        .footer-grid h2,
+        .footer-grid h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-grid p {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .footer-grid input {
+            width: 100%;
+            height: 50px;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="left">
+            <h1>Colorlib.</h1>
+            <span>+ EASYLO</span>
+        </div>
+
+        <div class="right">
+            <span>❤</span>
+            <span>🛒</span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <img src="./h1_hero1.jpg" alt="">
+
+        <div class="overlay"></div>
+
+        <nav>
+            <div class="logo">EasyLo.</div>
+
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Blog</li>
+                <li>Contact</li>
+            </ul>
+
+            <button>Apply For Loan</button>
+        </nav>
+
+        <div class="hero-content">
+
+            <div class="hero-left">
+                <h1>
+                    The Simple <br>
+                    Online Home <br>
+                    Loan.
+                </h1>
+
+                <div class="line"></div>
+
+                <p>
+                    Financial uncertainty is hard on employees
+                    and causes even.
+                </p>
+
+                <button class="service-btn">
+                    OUR SERVICES
+                </button>
+            </div>
+
+            <div class="loan-box">
+
+                <h2>How much you want?</h2>
+
+                <p>
+                    We provide online instant cash loans.
+                </p>
+
+                <hr>
+
+                <label>Amount You Want</label>
+                <input type="text" placeholder="Select Amount">
+
+                <label>Month</label>
+                <input type="text" placeholder="Select Month">
+
+                <h4>
+                    YOU HAVE TO PAY:
+                    <span>$0</span>
+                </h4>
+
+                <button class="apply-btn">
+                    APPLY NOW
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SOLUTIONS SECTION -->
+    <section class="solutions">
+
+        <h1>Solutions for every business need.</h1>
+
+        <div class="small-line"></div>
+
+        <p>
+            The brochure must grab a viewer's attention
+            and hold it long enough to deliver
+            the pertinent information.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="images/home.png">
+
+                <h4>Home Loan</h4>
+
+                <h2>
+                    What are my options and
+                    the cost to exercise?
+                </h2>
+
+                <p>
+                    Tools such as profit and tax calculator.
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="images/car.png">
+
+                <h4>Car Loan</h4>
+
+                <h2>
+                    Should I exercise now
+                    or later?
+                </h2>
+
+                <p>
+                    Tools such as profit and tax calculator.
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="images/business.png">
+
+                <h4>Business Loan</h4>
+
+                <h2>
+                    I own my shares can
+                    I get liquidity?
+                </h2>
+
+                <p>
+                    Tools such as profit and tax calculator.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+
+        <div class="about-image">
+
+            <img src="images/about1.jpg">
+
+            <div class="green-box">
+                <h1>99%</h1>
+                <p>Customer Satisfaction</p>
+            </div>
+
+        </div>
+
+        <div class="about-content">
+
+            <h1>
+                We guide projects and
+                organizations in making
+                the right decisions.
+            </h1>
+
+            <p>
+                Tools such as a profit simulator and
+                tax calculator show the value.
+            </p>
+
+            <ul>
+                <li>Monthly recurring revenue</li>
+                <li>Customer acquisition cost</li>
+                <li>Number of customers</li>
+            </ul>
+
+            <button>LEARN MORE</button>
+
+        </div>
+
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="choose">
+
+        <h1>Why Choose Us?</h1>
+
+        <div class="choose-cards">
+
+            <div class="choose-box">
+                <img src="images/icon1.png">
+                <h2>Quick Apply</h2>
+                <p>Simple application process.</p>
+            </div>
+
+            <div class="choose-box">
+                <img src="images/icon2.png">
+                <h2>Online & Secure</h2>
+                <p>Secure loan application.</p>
+            </div>
+
+            <div class="choose-box">
+                <img src="images/icon3.png">
+                <h2>Just Time</h2>
+                <p>Fast approval process.</p>
+            </div>
+
+            <div class="choose-box">
+                <img src="images/icon4.png">
+                <h2>Low Interest</h2>
+                <p>Affordable loan rates.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GET LOAN -->
+    <section class="loan-step">
+
+        <div class="loan-content">
+
+            <h1>Get loan in 3 easy steps</h1>
+
+            <p>
+                Tools such as a profit simulator and
+                tax calculator show the value.
+            </p>
+
+            <ul>
+                <li>Monthly recurring revenue</li>
+                <li>Customer acquisition cost</li>
+                <li>Number of customers</li>
+            </ul>
+
+            <button>LEARN MORE</button>
+
+        </div>
+
+        <div class="loan-image">
+            <img src="images/about2.jpg">
+        </div>
+
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial">
+
+        <h2>
+            "I had 15+ folks reach out to me on EasyLo..."
+        </h2>
+
+        <div class="author">
+            <img src="images/user.jpg">
+            <div>
+                <h3>Ash Wednesday</h3>
+                <p>Designer at Colorlib</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- BLOG -->
+    <section class="blog">
+
+        <h1>Latest News</h1>
+
+        <div class="blog-container">
+
+            <div class="blog-card">
+                <img src="images/blog1.jpg">
+                <h2>What are my options worth?</h2>
+            </div>
+
+            <div class="blog-card">
+                <img src="images/blog2.jpg">
+                <h2>Acquired within 30 days</h2>
+            </div>
+
+            <div class="blog-card">
+                <img src="images/blog3.jpg">
+                <h2>Connect with right people</h2>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+                <h2>EASYLO.</h2>
+                <p>Tools such as a profit simulator.</p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <p>Work</p>
+                <p>Services</p>
+                <p>Products</p>
+            </div>
+
+            <div>
+                <h3>Solution</h3>
+                <p>Air Freight</p>
+                <p>Ocean Freight</p>
+            </div>
+
+            <div>
+                <h3>Newsletter</h3>
+                <input type="email" placeholder="Email">
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

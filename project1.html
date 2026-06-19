@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan</title>
+    <link rel="icon" href="./favicon.jpg" style="width: 100px; height: 100px; border-radius: 50%;">
+    
+    <style>
+        body {
+            margin: 0;
+            padding-top: 70px;
+        }
+
+        .topbar {
+            background-color: #222;
+            color: white;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+
+            width: 100%;
+            z-index: 1000;
+
+            box-sizing: border-box;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .left h1 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .left span {
+            font-size: 20px;
+        }
+
+        .image {
+            position: absolute;
+            opacity: 0.8;
+            display: block;
+        }
+
+        .right span {
+            font-size: 50px;
+        }
+
+        .heading {
+            position: absolute;
+            /* bottom: 30%; */
+            top: 250px;
+            left: 180px;
+            color: white;
+            font-size: large;
+            width: 500px;
+            animation: fadeInLeft 1.5s ease
+        }
+
+
+
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .heading h1 {
+            font-size: 85px;
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .heading p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            width: 250px;
+            height: 70px;
+            font-size: 28px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.5s ease-in;
+        }
+
+        .button:hover {
+            background-color: #10c98f;
+            cursor: pointer;
+
+        }
+
+
+        .matter {
+            font-size: 82px;
+            position: absolute;
+            bottom: 59%;
+        }
+
+        .label {
+            position: absolute;
+
+            right: 10%;
+            top: 11%;
+            font-weight: bolder;
+            font-size: 20px;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            /* border:  2px solid ; */
+            animation: bounceIn 1.2s ease;
+            width: auto%;
+        }
+
+        .line{
+            border: 0;
+            height: 3px;
+            background:#19d3a2;
+            width: 30%;
+            margin: 35px auto;
+            
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .Links {
+
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0px;
+            gap: 40px;
+            font-size: xx-large;
+            font-weight: bolder;
+            position: absolute;
+            top: 80px;
+            left: 300px;
+            z-index: 100;
+            /* position: fixed;
+            top: 3;
+            z-index: 1000; */
+            /* background-color: #10c98f; */
+        }
+
+        .Links a {
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .Links button {
+            background-color: #10c98f;
+            color: black;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            border: 2px solid black;
+            font-size: large;
+            cursor: pointer;
+            transition: background-color ease-in 0.5s;
+
+        }
+
+        .heading2 {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .Container2 {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 50px 100px;
+            gap: 40px;
+        }
+
+        .Container2 div {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 30%;
+        }
+
+        .child1 {
+            background-color: #66e0b5;
+            width: 200px;
+            /* height: 200px; */
+            opacity: 1;
+            color: #ffffff;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+
+            position: relative;
+            left: -200px;
+            top: 168px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        .secondcontainer>div {
+            flex: 1;
+        }
+
+        .heading3 {
+            position: absolute;
+            left: 50%;
+            top: 174%;
+            margin-top: 10%;
+        }
+
+        .thirdcontainer {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 3%;
+        }
+
+        .boxes {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: nowrap;
+            gap: 60px;
+        }
+
+        .boxes>div {
+            width: 18%;
+            text-align: center;
+        }
+
+        .boxes img {
+            width: 100px;
+            height: 100px;
+            border-radius: ;
+        }
+
+        .quickplay {
+            transition: color 0.5s ease-in;
+        }
+
+        .quickplay:hover {
+
+            color: #10c98f;
+        }
+
+        .online {
+            transition: color 0.5s ease-in;
+        }
+
+        .online:hover {
+            color: #10c98f;
+        }
+
+        .just {
+            transition: color 0.5s ease-in;
+        }
+
+        .just:hover {
+            color: #10c98f;
+        }
+
+        .low {
+            transition: color 0.5s ease-in;
+        }
+
+        .low:hover {
+            color: #10c98f;
+        }
+
+        .fourthcontainer {
+            /* background-color: brown; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 5px;
+            gap: 10px;
+            background-color: #f8f9fa;
+            /* margin-left: 50px; */
+
+        }
+
+        /* .secondimage {
+            width: 40%;
+            transform: translateX(100px);
+        } */
+
+        .content2 {
+            width: 50%;
+            font-size: xx-large;
+            /* margin-left: -20px; */
+            transform: translateX(-140px);
+            color: #12263f;
+            margin-left: 80px;
+
+        }
+
+        .secondimage img {
+            width: 500px;
+            height: 500px;
+            border-radius: 5px;
+            /* display: block; */
+        }
+
+        .learnmore2 {
+
+            width: 180px;
+            border-radius: 5px;
+            height: 50px;
+            font-size: 19px;
+            transition: background-color 0.5s ease-in;
+        }
+
+        .learnmore2:hover {
+            background-color: #10c98f;
+            cursor: pointer;
+        }
+
+        .fifthcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            flex-direction: column;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+            background-size: cover;
+            background-position: center;
+
+
+
+            font-size: x-large;
+            font-weight: 800;
+            margin-top: 5%;
+            color: white;
+
+        }
+
+        blockquote {
+            width: 50%;
+            margin: auto;
+            color: white;
+            font-size: 28px;
+            font-style: italic;
+            line-height: 1.6;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        blockquote::before {
+            content: '"';
+        }
+
+        blockquote::after {
+            content: '"';
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            margin-top: 20px;
+            margin-left: -400px;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 30%;
+            object-fit: cover;
+        }
+
+        .profile h3 {
+            color: white;
+            margin: 0%;
+        }
+
+        .profile p {
+            color: #d3d3d3;
+            margin: 5px 0 0;
+        }
+
+        .smallcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
+            /* background-color: #0f172a; */
+            color: black;
+            gap: 5%;
+            padding: 5%;
+        }
+
+
+
+        .footer-section {
+            background: #edf2f1;
+            padding: 80px 8%;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .logo {
+            color: #19d3a2;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .footer-box h3 {
+            font-size: 30px;
+            margin-bottom: 25px;
+            color: #002b2b;
+        }
+
+        .footer-box p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-box ul li {
+            margin-bottom: 18px;
+        }
+
+        .footer-box ul li a {
+            text-decoration: none;
+            color: #444;
+            font-size: 18px;
+        }
+
+        .newsletter {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 18px;
+            border: 1px solid #19d3a2;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .newsletter button {
+            width: 70px;
+            border: none;
+            background: #19d3a2;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        hr {
+            margin: 60px 0 30px;
+            border: 0;
+            border-top: 1px solid #d3d3d3;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 18px;
+        }
+
+        /* Mobile */
+        @media(max-width:768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+        }
+
+        .overlay {
+            background: rgba(16, 201, 143, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .image {
+            position: relative;
+        }
+
+        .hero10 {
+            position: relative;
+            height: 700px;
+            width: 100%;
+            height: 700px;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .applynow {
+            background-color: ;
+        }
+
+        .loanheading {
+            transition: color 0.5s ease-in;
+            /* color: #1e1e1e; */
+            cursor: pointer;
+        }
+
+        .loanheading:hover {
+            color: #19d3a2;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="topbar">
+
+            <div class="left">
+                <h1>Colorib.</h1>
+                <span> + EASYLO</span>
+            </div>
+
+            <div class="right">
+                <span> &#10084;</span>
+                <span> &#128722</span>
+            </div>
+        </div>
+        <div class="hero10">
+            <div class="image">
+                <img src="./h1_hero1.jpg" alt="" style="width: 100%; height: 700px; opacity: 0.8; object-fit: cover;">
+                <div class="overlay"></div>
+            </div>
+
+            <div class="heading">
+                <h2 class="matter" style="font-size: 90px; line-height: 1.1;">The Simple Home Loan.</h2>
+                <hr>
+                <p style="font-weight: bold; font-size: 28px; font-weight: 500; line-height: 1.6; width: 550px;">
+                    Financial uncertainity is hard on employees, and causes
+                    even.
+                </p>
+                <button class="button">Our Services</button>
+            </div>
+
+            <div class="label">
+                <h4 style="font-size: 30px;"> How much you want?</h4>
+                <p> We Provide Online Instant Cash Loan.</p>
+                <hr class="line">
+                Amount You Want
+                <br>
+                <br>
+                <!-- <input type="text" placeholder="Select Amount" style="width: 300px; height: 30px; border-radius: 5px;"> -->
+                <select style="width: 300px; height: 40px; font-size:large;">
+                    <option value="">Select Amount</option>
+                    <option value="">10000</option>
+                    <option value="">20000</option>
+                    <option value="">30000</option>
+                </select>
+                <br>
+                <br>
+                Month
+                <br>
+                <br>
+                <!-- <input type="text" placeholder="Select Month" style="width: 300px; height: 30px; border-radius: 5px;"> -->
+                <select style="width: 300px; height: 40px; font-size: large;">
+                    <option value="">Select Month</option>
+                    <option value="">6 Months</option>
+                    <option value="">12 Months</option>
+                    <option value="">24 Months</option>
+                </select>
+                <br>
+                <p>You Have To Pay : $0</p>
+                <br>
+                <button
+                    style="background-color: #10c98f; color: white; border: 2px solid black; width: 320px; height: 70px;font-size: 28px; font-weight: 600; cursor: pointer;"
+                    class="applynow">
+                    APPLY
+                    NOW
+                </button>
+            </div>
+        </div>
+
+        <div class="Links" style="display: flex;gap: 30px;">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Contacts</a>
+            <a href="">Services</a>
+            <a href="">Blog</a>
+            <button>Apply Now</button>
+        </div>
+
+        <div class="heading2">
+            <h1>Solutions for every business need.</h1>
+            <hr>
+            <p style="font-size: 25px;">The brochure must grab a viewer’s attention and hold it long
+                enough to deliver the pertinent information.</p>
+        </div>
+
+        <div class="Container2">
+            <div style=" width: 32%;">
+                <img src="./home.webp" alt="" style="border-radius: 30%; height: 80px; width: 80px;">
+                <h3 style="font-size: 15px;font-weight: 500; color: #8a8a8a; margin-bottom: 20px;">Home Loan</h3>
+                <h2 style="font-size: 30px; font-weight: 700; line-height: 1.4; margin: 20px 0;" class="loanheading">
+                    What are my options and the cost to
+                    exercise?</h2>
+                <p style="font-size: 23px;">Tools such as a profit and tax calculator show the value of your stock
+                    options and exercise cost.</p>
+            </div>
+            <div style="width: 32%;">
+                <img src="./car loan.png" alt="" style="border-radius: 30%; height: 80px; width: 80px;">
+                <h3 style="font-size: 15px;font-weight: 500; color: #8a8a8a; margin-bottom: 20px;">Car Loan</h3>
+                <h2 style="font-size: 30px; font-weight: bold; line-height: 1.4;" class="loanheading">Should I exercise
+                    now or later? How can
+                    i afford it?</h2>
+                <p style="font-size: 23px;">Tools such as a profit and tax calculator show the value of your stock
+                    options and exercise cost.</p>
+            </div>
+            <div style="width: 32%;">
+                <img src="./bussiness.webp" alt="" style="border-radius: 30%; height: 80px; width: 80px;">
+                <h3 style="font-size: 15px;font-weight: 500; color: #8a8a8a; margin-bottom: 20px;">Bussiness Loan</h3>
+                <h2 style="font-size: 30px; font-weight: bold; line-height: 1.4;" class="loanheading">I own my shares -
+                    can I get liquidity
+                    now without selling?</h2>
+                <p style="font-size: 23px;">Tools such as a profit and tax calculator show the value of your stock
+                    options and exercise cost.</p>
+            </div>
+        </div>
+        <br>
+
+        <div class="fourthcontainer" style="background-color: #4fc3a1;">
+            <img src="./about1.jpg" alt="" width="500px" style="position: relative ; left: 50px; border-radius: 5px;">
+            <div class="child1" style="font-size: 50px; color: white; padding: 5%; opacity: 0.9; margin: 0;">
+                99% <p style="font-size: 20px; margin-top: 10px;">Customer Satisfaction</p>
+            </div>
+            <div class="content2">
+                <h2 style="color: white;">We guide projects and organizations in making the right decisions.</h2>
+                <p style="color: white;">
+                    Tools such as a profit simulator and tax calculator show the value of your stock options and
+                    exercise cost. The brochure must grab a viewer’s attention and hold it long enough to deliver the
+                    pertinent information.
+                </p>
+                <hr>
+                <ul style="color: white;">
+                    <li>Monthly Recurring Revenue</li>
+                    <li>Customer Aquistion Cost</li>
+                    <li>Number Of Customers</li>
+                </ul>
+                <Button class="learnmore2">Learn More</Button>
+            </div>
+
+        </div>
+
+        <br>
+        <div class="thirdcontainer">
+            <h1 style="font-size: 50px; text-align: center;">Why Choose Us?</h1>
+            <hr>
+            <p style="font-size: 20px; width: 50%; margin: auto; line-height: 1.6; color: #666; margin-top: -2%;">The
+                brochure must grab a viewer’s attention and hold it long
+                enough to deliver the pertinent information.</p>
+            <div class="boxes">
+                <div>
+                    <img src="./hand click icon.png" alt="" style="border-radius: 30%; height: 100px; width: 100px;">
+                    <h1 class="quickplay" style="margin-top: 2%;">Quick Apply</h1>
+                    <p style="line-height: 1.6; width: 100%;">Tools such as a profit simulator and tax simulator
+                        calculator show the value of your stock
+                        options and exercise cost.</p>
+                </div>
+                <div>
+                    <img src="./secure.avif" alt="" style="border-radius: 30%; height: 100px; width: 100px;">
+                    <h1 class="online" style="margin-top: 2%;">Online & Secure</h1>
+                    <p style="line-height: 1.6; width: 100%;">Tools such as a profit simulator and tax simulator
+                        calculator show the value of your stock
+                        options and exercise cost.</p>
+                </div>
+                <div>
+                    <img src="./time.webp" alt="time" style="height: 100px; width: 100px; border-radius: 30%;">
+                    <h1 class="just" style="margin-top: 2%;">Just Time</h1>
+                    <p style="line-height: 1.6; width: 100%;">Tools such as a profit simulator and tax simulator
+                        calculator show the value of your stock
+                        options and exercise cost.</p>
+                </div>
+                <div>
+                    <img src="./low intrest.jpg" alt="" style="height: 100px; width: 100px; border-radius: 30%;">
+                    <h1 class="low" style="margin-top: 2%;">Low Intrest</h1>
+                    <p style="line-height: 1.6; width: 100%;">Tools such as a profit simulator and tax simulator
+                        calculator show the value of your stock
+                        options and exercise cost.</p>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="fourthcontainer" style="margin-top: 20px; gap: 10px;">
+
+            <div class="content2">
+                <h1>Get Loan In Three Steps</h1>
+                <p style="color: #12263f">
+                    Tools such as a profit simulator and tax calculator show the value of your stock options and
+                    exercise cost. The brochure must grab a viewer’s attention and hold it long enough to deliver the
+                    pertinent information.
+                </p>
+                <hr>
+                <ul style="color:  #12263f;">
+                    <li style="color: green;"><span style="color: black;">Monthly Recurring Revenue</span></li>
+                    <li style="color: green;">
+                        <span style="color: black;"> Customer Aquistion Cost</span>
+                    </li>
+                    <li style="color: green;">
+                        <span style="color: black;"> Number Of Customers</span>
+                    </li>
+                </ul>
+                <Button class="learnmore2">Learn
+                    More</Button>
+            </div>
+            <div>
+                <div class="secondimage">
+                    <img src="./about2.jpg" alt="" style="position: relative; top: -19px;">
+                </div>
+            </div>
+        </div>
+        <div class="fifthcontainer" style="background-color: green;">
+            <blockquote>
+
+                A home loan is a type of financial assistance provided by banks and other financial institutions to help
+                individuals purchase, construct, or renovate a house. Instead of paying the entire cost of the property
+                at once, the borrower can repay the loan amount in monthly installments over a fixed period. Home loans
+                usually come with an interest rate, which is charged on the borrowed amount. They make home ownership
+                more affordable and accessible for people by reducing the immediate financial burden. Before approving a
+                home loan, lenders consider factors such as income, credit history, repayment capacity, and property
+                value. Home loans play an important role in helping families achieve their dream of owning a home.
+
+            </blockquote>
+            <div class="profile">
+                <img src="./bukovel-ukraine-october-wax-figure-world-famous-scientist-theoretical-physicist-nobel-laureate-creator-theory-relativity-271145851.webp"
+                    alt="">
+                <div>
+                    <h3>Ash Wednesday</h3>
+                    <p>Designer at Colorlib</p>
+                </div>
+
+            </div>
+            <!-- <img src="./home loan.jpg" alt="" width="100px" height="100px" style="border-radius: 50%;"> -->
+
+
+        </div>
+        <div class="sixthcontainer">
+
+        </div>
+
+        <div class="Seventhcontainer" style="margin-top: 5%;">
+            <h1 style="display: flex; justify-content: center; text-align: center;">Latest News</h1>
+            <hr>
+            <div class="smallcontainer">
+                <div>
+                    <img src="./blog1.jpg" alt="" style="width: 360px; height: 250px;">20 March 2021
+                    <h2>What Are My Options Worth And The Cost To Experience</h2>
+                    <p>
+                        Tools such as a profit simulator and tax calculator show the value of your stock options and
+                        exercise cost. The brochure must grab a viewer’s attention and hold it long enough to deliver
+                        the pertinent information.
+
+                    </p>
+                </div>
+                <br>
+                <div>
+                    <img src="./blog2.jpg" alt="" style="width: 360px; height: 250px;">20 March 2021
+                    <h2>From Start To Finish, We Were Acquired Within 30 Days</h2>
+                    <p>
+                        Tools such as a profit simulator and tax calculator show the value of your stock options and
+                        exercise cost. The brochure must grab a viewer’s attention and hold it long enough to deliver
+                        the pertinent information.
+
+                    </p>
+                </div>
+                <br>
+                <div>
+                    <img src="./blog3.jpg" alt="" style="width: 360px; height: 250px;">20 March 2021
+                    <h2>We will Connect You With The Right People To Start</h2>
+                    <p>
+                        Tools such as a profit simulator and tax calculator show the value of your stock options and
+                        exercise cost. The brochure must grab a viewer’s attention and hold it long enough to deliver
+                        the pertinent information.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-container">
+
+            <!-- Logo Section -->
+            <div class="footer-box">
+                <h2 class="logo">EASYLO.</h2>
+                <p>
+                    Tools such as a profit simulator and tax calculator show the value
+                    of your stock options and exercise cost.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Tips & Tricks</a></li>
+                </ul>
+            </div>
+
+            <!-- Solution -->
+            <div class="footer-box">
+                <h3>Solution</h3>
+                <ul>
+                    <li><a href="#">Air Freight</a></li>
+                    <li><a href="#">Ocean Freight</a></li>
+                    <li><a href="#">Large Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-box">
+                <h3>Newsletter</h3>
+                <p>Subscribe newsletter to get updates.</p>
+
+                <div class="newsletter">
+                    <input type="email" placeholder="Enter your email">
+                    <button>&#10148;</button>
+                </div>
+
+                <div class="social-icons">
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">💼</a>
+                    <a href="#">▶</a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="copyright">
+            Copyright ©2026 All rights reserved |
+            This template is made with ❤ by Colorlib
+        </div>
+    </footer>
+
+</body>
+
+</html>
